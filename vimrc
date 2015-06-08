@@ -18,7 +18,7 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
-
+"Plugin 'andviro/flake8-vim'
 
 
 " All of your Plugins must be added before the following line
@@ -83,7 +83,7 @@ set undofile
 
 
 
-let mapleader = ","
+let mapleader = "\<space>"
 
 
 
@@ -119,7 +119,7 @@ inoremap jj <ESC>
 
 nnoremap <leader>w <C-w>v<C-w>l
 
-
+nnoremap <Leader>w :w<CR>
 
 "open NERDTree automatically"
 
@@ -180,3 +180,6 @@ set autoread
 "Select just pasted text                                                          
 nnoremap gp `[v`]                                                                 
 nnoremap <space> za  
+"
+" reload .vimrc
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
