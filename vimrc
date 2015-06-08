@@ -1,22 +1,43 @@
 filetype off
-
-execute pathogen#infect()
-
-syntax on
-
-"call pathogen#runtime_append_all_bundles()"
-
-filetype plugin indent on
-
-
-
 set nocompatible
 
 
+" set the runtime path to include Vundle and initialize
+":PluginInstall
+":PluginUpdate
+":Plugins
+":PluginSearch!
+"
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'flazz/vim-colorscheme'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
+Plugin 'bling/vim-airline'
+
+
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on
+"call pathogen#runtime_append_all_bundles()"
+" let Vundle manage Vundle, required
+syntax on
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 set modelines=0
-
-
 
 set tabstop=4
 
@@ -142,6 +163,7 @@ map <C-H> :tabp<CR>
 
 :set foldmethod=indent
 set clipboard=unnamed
+set ignorecase                                                                    
 set smartcase     " ignore case if search pattern is all lowercase,
                     "    case-sensitive otherwise
 set smarttab      " insert tabs on the start of a line
@@ -150,3 +172,11 @@ set smarttab      " insert tabs on the start of a line
                     "
 nnoremap <tab> %
 vnoremap <tab> %
+
+let NERDTreeIgnore = ['\.pyc$', '\.orig$', '\.swp$']                              
+let g:jedi#use_tabs_not_buffers = 0 
+
+set autoread                                                                      
+"Select just pasted text                                                          
+nnoremap gp `[v`]                                                                 
+nnoremap <space> za  
