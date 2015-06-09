@@ -18,6 +18,7 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
+Plugin 'mileszs/ack.vim'
 "Plugin 'andviro/flake8-vim'
 
 
@@ -118,6 +119,7 @@ inoremap jj <ESC>
 ",w for split screen"
 
 nnoremap <leader>w <C-w>v<C-w>l
+inoremap <leader>e <esc>:w<cr> 
 
 nnoremap <Leader>w :w<CR>
 
@@ -173,7 +175,7 @@ set smarttab      " insert tabs on the start of a line
 nnoremap <tab> %
 vnoremap <tab> %
 
-let NERDTreeIgnore = ['\.pyc$', '\.orig$', '\.swp$']                              
+let NERDTreeIgnore = ['\.pyc$', '\.orig$', '\.swp']                
 let g:jedi#use_tabs_not_buffers = 0 
 
 set autoread                                                                      
@@ -183,3 +185,14 @@ nnoremap <space> za
 "
 " reload .vimrc
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+" vp doesn't replace paste buffer
+function! RestoreRegister()
+  let @" = s:restore_reg
+    return ''
+endfunction
+function! s:Repl()
+  let s:restore_reg = @"
+  return "p@=RestoreRegister()\<cr>"
+endfunction
+vmap <silent> <expr> p <sid>Repl()
