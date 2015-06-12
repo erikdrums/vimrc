@@ -175,7 +175,7 @@ set smarttab      " insert tabs on the start of a line
 nnoremap <tab> %
 vnoremap <tab> %
 
-let NERDTreeIgnore = ['\.pyc$', '\.orig$', '\.swp']                
+let NERDTreeIgnore = ['\.pyc$', '\.orig$', '\.swp$', '\.swo$', '\.un\~$'] 
 let g:jedi#use_tabs_not_buffers = 0 
 
 set autoread                                                                      
