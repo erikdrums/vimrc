@@ -196,3 +196,6 @@ function! s:Repl()
   return "p@=RestoreRegister()\<cr>"
 endfunction
 vmap <silent> <expr> p <sid>Repl()
+
+"  Treat underscore as space
+set iskeyword-=_
