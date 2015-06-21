@@ -174,7 +174,14 @@ set smarttab      " insert tabs on the start of a line
                     "
 nnoremap <tab> %
 vnoremap <tab> %
-
+if has("gui_running")                                                                
+    colorscheme solarized                                                            
+    set background=dark                                                              
+    set guioptions-=T                                                                
+    set guioptions+=e                                                                
+    set t_Co=256                                                                     
+    set guitablabel=%M\ %t                                                           
+endif 
 let NERDTreeIgnore = ['\.pyc$', '\.orig$', '\.swp$', '\.swo$', '\.un\~$'] 
 let g:jedi#use_tabs_not_buffers = 0 
 
