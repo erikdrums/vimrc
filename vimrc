@@ -206,3 +206,4 @@ vmap <silent> <expr> p <sid>Repl()
 
 "  Treat underscore as space
 set iskeyword-=_
+vnoremap // y/<C-R>"<CR>
