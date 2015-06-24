@@ -209,5 +209,5 @@ set iskeyword-=_
 vnoremap // y/<C-R>"<CR>
 
 
-:nmap <silent> <leader>w :Bclose!<CR>
+:nmap <silent> <leader>q :Bclose!<CR>
 :nmap <silent> <leader>b :NERDTreeToggle<CR>
