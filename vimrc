@@ -188,7 +188,6 @@ let g:jedi#use_tabs_not_buffers = 0
 set autoread                                                                      
 "Select just pasted text                                                          
 nnoremap gp `[v`]                                                                 
-nnoremap <space> za  
 "
 " reload .vimrc
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
@@ -206,4 +205,9 @@ vmap <silent> <expr> p <sid>Repl()
 
 "  Treat underscore as space
 set iskeyword-=_
+"   Use whole sentence to search
 vnoremap // y/<C-R>"<CR>
+
+
+:nmap <silent> <leader>w :Bclose<CR>
+:nmap <silent> <leader>b :NERDTreeToggle<CR>
