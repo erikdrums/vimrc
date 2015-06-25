@@ -18,6 +18,7 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
+"  Plugin 'rbgrouleff/bclose'
 Plugin 'mileszs/ack.vim'
 "Plugin 'andviro/flake8-vim'
 
@@ -211,3 +212,8 @@ vnoremap // y/<C-R>"<CR>
 
 :nmap <silent> <leader>q :Bclose!<CR>
 :nmap <silent> <leader>b :NERDTreeToggle<CR>
+
+"  Resize split window
+:nmap <leader>r+ :vertical resize +10<CR>
+:nmap <leader>r- :vertical resize -10<CR>
+
