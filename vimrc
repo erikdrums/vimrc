@@ -19,6 +19,7 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
+"  Plugin 'rbgrouleff/bclose'
 Plugin 'mileszs/ack.vim'
 Plugin 'rbgrouleff/bclose'
 "Plugin 'andviro/flake8-vim'
@@ -177,14 +178,20 @@ set smarttab      " insert tabs on the start of a line
                     "
 nnoremap <tab> %
 vnoremap <tab> %
-
-let NERDTreeIgnore = ['\.pyc$', '\.orig$', '\.swp']                
+if has("gui_running")                                                                
+    colorscheme solarized                                                            
+    set background=dark                                                              
+    set guioptions-=T                                                                
+    set guioptions+=e                                                                
+    set t_Co=256                                                                     
+    set guitablabel=%M\ %t                                                           
+endif 
+let NERDTreeIgnore = ['\.pyc$', '\.orig$', '\.swp$', '\.swo$', '\.un\~$'] 
 let g:jedi#use_tabs_not_buffers = 0 
 
 set autoread                                                                      
 "Select just pasted text                                                          
 nnoremap gp `[v`]                                                                 
-nnoremap <space> za  
 "
 " reload .vimrc
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
@@ -200,10 +207,15 @@ function! s:Repl()
 endfunction
 vmap <silent> <expr> p <sid>Repl()
 
-"Move lines
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k> :m .-2<CR>==
-inoremap <A-j> <Esc>:m .+1<CR>==gi
-inoremap <A-k> <Esc>:m .-2<CR>==gi
-vnoremap <A-j> :m '>+1<CR>gv=gv
-vnoremap <A-k> :m '<-2<CR>gv=gv
+"  Treat underscore as space
+set iskeyword-=_
+"   Use whole sentence to search
+vnoremap // y/<C-R>"<CR>
+
+
+:nmap <silent> <leader>q :Bclose!<CR>
+:nmap <silent> <leader>b :NERDTreeToggle<CR>
+
+"  Resize split window
+:nmap <leader>r+ :vertical resize +10<CR>
+:nmap <leader>r- :vertical resize -10<CR>
