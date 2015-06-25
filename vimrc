@@ -13,7 +13,7 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'flazz/vim-colorscheme'
+Plugin 'flazz/vim-colorschemes'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/syntastic'
@@ -21,10 +21,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
 "  Plugin 'rbgrouleff/bclose'
 Plugin 'mileszs/ack.vim'
-Plugin 'rbgrouleff/bclose'
+Plugin 'moll/vim-bbye'
 "Plugin 'andviro/flake8-vim'
-#set background=dark
-#colorscheme solarized
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -213,7 +211,7 @@ set iskeyword-=_
 vnoremap // y/<C-R>"<CR>
 
 
-:nmap <silent> <leader>q :Bclose!<CR>
+:nmap <silent> <leader>q :Bdelete<CR>
 :nmap <silent> <leader>b :NERDTreeToggle<CR>
 
 "  Resize split window
