@@ -217,3 +217,7 @@ vnoremap // y/<C-R>"<CR>
 "  Resize split window
 :nmap <leader>r+ :vertical resize +10<CR>
 :nmap <leader>r- :vertical resize -10<CR>
+:nnoremap <silent> <leader>v 0wv$
+:vnoremap <silent> <leader>x "aydd
+:vnoremap <silent> <leader>c "ay
+:nnoremap <silent> <leader>p "ap
