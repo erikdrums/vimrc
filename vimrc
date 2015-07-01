@@ -221,3 +221,12 @@ vnoremap // y/<C-R>"<CR>
 :vnoremap <silent> <leader>x "aydd
 :vnoremap <silent> <leader>c "ay
 :nnoremap <silent> <leader>p "ap
+
+"   :noremap <silent> <leader>f /function/ge<bar> /def /eg <CR>zt
+"   :noremap <silent>  <leader>f :silent /function \|class <CR>zt
+:noremap <silent>  <leader>f :silent! /function /<CR> <bar> :silent! /def /<CR> <bar>:silent! /class /<CR>zt
+:noremap <silent>  <leader>d :silent! /function /<CR>NNzt <bar> :silent! /def /<CR>NNzt <bar>:silent! /class /<CR>NNzt
+"   silent! :noremap <silent> <leader>d /function <CR>NNzt
+"  :silent /function \|class virker
+
+set pastetoggle=<F2>
