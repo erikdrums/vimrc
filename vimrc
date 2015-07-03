@@ -12,7 +12,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
-Plugin 'Valloric/YouCompleteMe'
+"   Plugin 'Valloric/YouCompleteMe'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'davidhalter/jedi-vim'
@@ -217,7 +217,13 @@ vnoremap // y/<C-R>"<CR>
 "  Resize split window
 :nmap <leader>r+ :vertical resize +10<CR>
 :nmap <leader>r- :vertical resize -10<CR>
+:nmap <leader>- :resize -10<CR>
+:nmap <leader>+ :resize +10<CR>
 :nnoremap <silent> <leader>v 0wv$
 :vnoremap <silent> <leader>x "aydd
 :vnoremap <silent> <leader>c "ay
 :nnoremap <silent> <leader>p "ap
+
+:ab p print
+:iabbrev pp from pprint import pprint<cr>pprint()<Left>
+:iabbrev vd var_dump()<Left>
