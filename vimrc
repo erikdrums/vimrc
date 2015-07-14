@@ -19,6 +19,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
 "  Plugin 'rbgrouleff/bclose'
+Plugin 'moll/vim-bbye'
 Plugin 'mileszs/ack.vim'
 "Plugin 'andviro/flake8-vim'
 
@@ -89,8 +90,8 @@ let mapleader = "\<space>"
 
 
 
-set wrap
-
+"  set wrap
+set nowrap
 set textwidth=79
 
 set formatoptions=qrn1
@@ -210,10 +211,27 @@ set iskeyword-=_
 vnoremap // y/<C-R>"<CR>
 
 
-:nmap <silent> <leader>q :Bclose!<CR>
+:nmap <silent> <leader>q :Bdelete<CR>
 :nmap <silent> <leader>b :NERDTreeToggle<CR>
 
 "  Resize split window
 :nmap <leader>r+ :vertical resize +10<CR>
 :nmap <leader>r- :vertical resize -10<CR>
+:nnoremap <silent> <leader>v 0wv$
+:vnoremap <silent> <leader>x "aydd
+:vnoremap <silent> <leader>c "ay
+:nnoremap <silent> <leader>p "ap
 
+"   :noremap <silent> <leader>f /function/ge<bar> /def /eg <CR>zt
+"   :noremap <silent>  <leader>f :silent /function \|class <CR>zt
+:noremap <silent>  <leader>f :silent! /function /<CR> <bar> :silent! /def /<CR> <bar>:silent! /class /<CR>zt
+:noremap <silent>  <leader>d :silent! /function /<CR>NNzt <bar> :silent! /def /<CR>NNzt <bar>:silent! /class /<CR>NNzt
+"   silent! :noremap <silent> <leader>d /function <CR>NNzt
+"  :silent /function \|class virker
+
+set pastetoggle=<F2>
+:ab vd var_dump()<Left> 
+:ab p <?php
+:ab cl console.log()<Left>
+:noremap <C-W>j <C-W><Left>
+:noremap <C-W>k <C-W><Right>
