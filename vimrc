@@ -91,6 +91,7 @@ let mapleader = "\<space>"
 
 
 set wrap
+set nowrap
 
 set textwidth=79
 
@@ -230,3 +231,7 @@ vnoremap // y/<C-R>"<CR>
 "  :silent /function \|class virker
 
 set pastetoggle=<F2>
+:ab vd var_dump()<Left> 
+:ab p <?php
+:noremap <C-W>j <C-W><Left>
+:noremap <C-W>k <C-W><Right>
