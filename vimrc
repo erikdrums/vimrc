@@ -235,3 +235,5 @@ set pastetoggle=<F2>
 :ab cl console.log()<Left>
 :noremap <C-W>j <C-W><Left>
 :noremap <C-W>k <C-W><Right>
+
+:noremap <silent> <leader>ciw F<Space>Wvt<Space>di
