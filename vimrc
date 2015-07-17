@@ -237,3 +237,4 @@ set pastetoggle=<F2>
 :noremap <C-W>k <C-W><Right>
 
 :noremap <silent> <leader>ciw F<Space>Wvt<Space>di
+:noremap <silent> <leader><Space> i<Space><ESC>
