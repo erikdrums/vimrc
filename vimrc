@@ -218,9 +218,9 @@ vnoremap // y/<C-R>"<CR>
 :nmap <leader>r+ :vertical resize +10<CR>
 :nmap <leader>r- :vertical resize -10<CR>
 :nnoremap <silent> <leader>v 0wv$
-:vnoremap <silent> <leader>x "aydd
+:vnoremap <silent> <leader>x "aygvd<<
 :vnoremap <silent> <leader>c "ay
-:nnoremap <silent> <leader>p "ap
+:nnoremap <silent> <leader>p "api<tab><ESC>
 
 "   :noremap <silent> <leader>f /function/ge<bar> /def /eg <CR>zt
 "   :noremap <silent>  <leader>f :silent /function \|class <CR>zt
@@ -237,4 +237,5 @@ set pastetoggle=<F2>
 :noremap <C-W>k <C-W><Right>
 
 :noremap <silent> <leader>ciw F<Space>Wvt<Space>di
+:noremap <silent> <leader>viw F<Space>Wvt<Space>"ay
 :noremap <silent> <leader><Space> i<Space><ESC>
