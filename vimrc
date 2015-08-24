@@ -233,6 +233,7 @@ set pastetoggle=<F2>
 :ab vd var_dump()<Left> 
 :ab p <?php
 :ab cl console.log()<Left>
+:ab pp import pprint<Enter>pprint.pprint()<Left>
 :noremap <C-W>j <C-W><Left>
 :noremap <C-W>k <C-W><Right>
 
