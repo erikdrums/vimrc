@@ -21,6 +21,7 @@ Plugin 'bling/vim-airline'
 "  Plugin 'rbgrouleff/bclose'
 Plugin 'moll/vim-bbye'
 Plugin 'mileszs/ack.vim'
+Plugin 'kien/ctrlp.vim'
 "Plugin 'andviro/flake8-vim'
 
 
@@ -40,55 +41,36 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+"Ctrl-P
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc 
+let g:ctrlp_working_path_mode = 'ra'
+
+
 set modelines=0
-
 set tabstop=4
-
 set shiftwidth=4
-
 set softtabstop=4
-
 set expandtab
-
-
-
 set encoding=utf-8
-
 set scrolloff=3
-
 set autoindent
-
 set showmode
-
 set showcmd
-
 set hidden
-
 set wildmenu
-
 set wildmode=list:longest
-
 set visualbell
-
 set cursorline
-
 set ttyfast
-
 set ruler
-
 set backspace=indent,eol,start
-
 set laststatus=2
-
 set relativenumber
-
 set undofile
 
-
-
 let mapleader = "\<space>"
-
-
 
 "  set wrap
 set nowrap
@@ -185,7 +167,10 @@ if has("gui_running")
     set guitablabel=%M\ %t                                                           
 endif 
 let NERDTreeIgnore = ['\.pyc$', '\.orig$', '\.swp$', '\.swo$', '\.un\~$'] 
+
+"Jedi settings.
 let g:jedi#use_tabs_not_buffers = 0 
+let g:jedi#use_splits_not_buffers = "right"
 
 set autoread                                                                      
 "Select just pasted text                                                          
@@ -220,7 +205,7 @@ vnoremap // y/<C-R>"<CR>
 :nnoremap <silent> <leader>v 0wv$
 :vnoremap <silent> <leader>x "aygvd<<
 :vnoremap <silent> <leader>c "ay
-:nnoremap <silent> <leader>p "api<tab><ESC>
+:nnoremap <silent> <leader>p "api<ESC>
 
 "   :noremap <silent> <leader>f /function/ge<bar> /def /eg <CR>zt
 "   :noremap <silent>  <leader>f :silent /function \|class <CR>zt
