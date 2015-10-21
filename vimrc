@@ -75,35 +75,23 @@ let mapleader = "\<space>"
 "  set wrap
 set nowrap
 set textwidth=79
-
 set formatoptions=qrn1
-
 set colorcolumn=85
-
-
 
 nnoremap ; :
 
-
-
 "reselect the text that was just pasted so I can perform commands (like
-
 "indentation) on it:"
-
 nnoremap <leader>q gqip
 
-
-
 "Go to edit mode with jj"
-
 inoremap jj <ESC>
-
 
 
 ",w for split screen"
 
 nnoremap <leader>w <C-w>v<C-w>l
-inoremap <leader>e <esc>:w<cr> 
+inoremap <leader>w <esc>:w<cr> 
 
 nnoremap <Leader>w :w<CR>
 
