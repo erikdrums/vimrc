@@ -1,4 +1,4 @@
-filetype off
+    filetype off
 set nocompatible
 
 
@@ -20,7 +20,11 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
 "  Plugin 'rbgrouleff/bclose'
 Plugin 'moll/vim-bbye'
-Plugin 'mileszs/ack.vim'
+"Plugin 'mileszs/ack.vim'
+Plugin 'easygrep'
+Plugin 'szw/vim-tags'
+Plugin 'rking/ag.vim'
+Plugin 'kien/ctrlp.vim'
 "Plugin 'andviro/flake8-vim'
 
 
@@ -121,7 +125,7 @@ inoremap jj <ESC>
 ",w for split screen"
 
 nnoremap <leader>w <C-w>v<C-w>l
-inoremap <leader>e <esc>:w<cr> 
+inoremap <leader>w <esc>:w<cr> 
 
 nnoremap <Leader>w :w<CR>
 
@@ -235,3 +239,8 @@ set pastetoggle=<F2>
 :ab cl console.log()<Left>
 :noremap <C-W>j <C-W><Left>
 :noremap <C-W>k <C-W><Right>
+:noremap <silent> <leader><Space> i<space><ESC>
+:ab pp from pprint import pprint<ESC>opprint()<ESC>i
+
+
+
