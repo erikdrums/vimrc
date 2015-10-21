@@ -15,7 +15,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'flazz/vim-colorscheme'
 Plugin 'davidhalter/jedi-vim'
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
 "  Plugin 'rbgrouleff/bclose'
@@ -44,82 +44,51 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+"Ctrl-P
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc 
+let g:ctrlp_working_path_mode = 'ra'
+
+
 set modelines=0
-
 set tabstop=4
-
 set shiftwidth=4
-
 set softtabstop=4
-
 set expandtab
-
-
-
 set encoding=utf-8
-
 set scrolloff=3
-
 set autoindent
-
 set showmode
-
 set showcmd
-
 set hidden
-
 set wildmenu
-
 set wildmode=list:longest
-
 set visualbell
-
 set cursorline
-
 set ttyfast
-
 set ruler
-
 set backspace=indent,eol,start
-
 set laststatus=2
-
 set relativenumber
-
 set undofile
 
-
-
 let mapleader = "\<space>"
-
-
 
 "  set wrap
 set nowrap
 set textwidth=79
-
 set formatoptions=qrn1
-
 set colorcolumn=85
-
-
 
 nnoremap ; :
 
-
-
 "reselect the text that was just pasted so I can perform commands (like
-
 "indentation) on it:"
-
 nnoremap <leader>q gqip
 
-
-
 "Go to edit mode with jj"
-
 inoremap jj <ESC>
-
 
 
 ",w for split screen"
@@ -189,7 +158,10 @@ if has("gui_running")
     set guitablabel=%M\ %t                                                           
 endif 
 let NERDTreeIgnore = ['\.pyc$', '\.orig$', '\.swp$', '\.swo$', '\.un\~$'] 
+
+"Jedi settings.
 let g:jedi#use_tabs_not_buffers = 0 
+let g:jedi#use_splits_not_buffers = "right"
 
 set autoread                                                                      
 "Select just pasted text                                                          
@@ -222,9 +194,9 @@ vnoremap // y/<C-R>"<CR>
 :nmap <leader>r+ :vertical resize +10<CR>
 :nmap <leader>r- :vertical resize -10<CR>
 :nnoremap <silent> <leader>v 0wv$
-:vnoremap <silent> <leader>x "aydd
+:vnoremap <silent> <leader>x "aygvd<<
 :vnoremap <silent> <leader>c "ay
-:nnoremap <silent> <leader>p "ap
+:nnoremap <silent> <leader>p "api<ESC>
 
 "   :noremap <silent> <leader>f /function/ge<bar> /def /eg <CR>zt
 "   :noremap <silent>  <leader>f :silent /function \|class <CR>zt
@@ -237,10 +209,13 @@ set pastetoggle=<F2>
 :ab vd var_dump()<Left> 
 :ab p <?php
 :ab cl console.log()<Left>
+:ab pp import pprint<Enter>pprint.pprint()<Left>
 :noremap <C-W>j <C-W><Left>
 :noremap <C-W>k <C-W><Right>
 :noremap <silent> <leader><Space> i<space><ESC>
 :ab pp from pprint import pprint<ESC>opprint()<ESC>i
 
-
-
+:noremap <silent> <leader>ciw F<Space>Wvt<Space>di
+:noremap <silent> <leader>viw F<Space>Wvt<Space>"ay
+:noremap <silent> <leader><Space> i<Space><ESC>
+>>>>>>> 0921705fcdbc535f085c65190a0e04d9c5ed3740
