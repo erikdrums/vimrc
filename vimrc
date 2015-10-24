@@ -218,4 +218,3 @@ set pastetoggle=<F2>
 :noremap <silent> <leader>ciw F<Space>Wvt<Space>di
 :noremap <silent> <leader>viw F<Space>Wvt<Space>"ay
 :noremap <silent> <leader><Space> i<Space><ESC>
->>>>>>> 0921705fcdbc535f085c65190a0e04d9c5ed3740
