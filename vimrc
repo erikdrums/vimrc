@@ -182,7 +182,7 @@ endfunction
 vmap <silent> <expr> p <sid>Repl()
 
 "  Treat underscore as space
-set iskeyword-=_
+"set iskeyword-=_
 "   Use whole sentence to search
 vnoremap // y/<C-R>"<CR>
 
