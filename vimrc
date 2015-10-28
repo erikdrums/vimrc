@@ -47,7 +47,7 @@ let g:syntastic_check_on_wq = 0
 "Ctrl-P
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc 
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.orig
 let g:ctrlp_working_path_mode = 'ra'
 
 "YouCompleteMe
