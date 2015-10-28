@@ -14,8 +14,8 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'flazz/vim-colorscheme'
-Plugin 'davidhalter/jedi-vim'
-"Plugin 'scrooloose/syntastic'
+"Plugin 'davidhalter/jedi-vim'
+Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
 "  Plugin 'rbgrouleff/bclose'
@@ -50,6 +50,18 @@ let g:ctrlp_cmd = 'CtrlP'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc 
 let g:ctrlp_working_path_mode = 'ra'
 
+"YouCompleteMe
+let g:ycm_autoclose_preview_window_after_completion=1
+
+"python with virtualenv support
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
 
 set modelines=0
 set tabstop=4
