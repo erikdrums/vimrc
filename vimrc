@@ -208,7 +208,8 @@ vnoremap // y/<C-R>"<CR>
 :nnoremap <silent> <leader>v 0wv$
 :vnoremap <silent> <leader>x "aygvd<<
 :vnoremap <silent> <leader>c "ay
-:nnoremap <silent> <leader>p "api<ESC>
+:nnoremap <silent> <leader>p o<space><ESC>"api<ESC>x
+:nnoremap <silent> <leader>pp "api
 
 "   :noremap <silent> <leader>f /function/ge<bar> /def /eg <CR>zt
 "   :noremap <silent>  <leader>f :silent /function \|class <CR>zt
