@@ -14,8 +14,8 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'flazz/vim-colorscheme'
-Plugin 'davidhalter/jedi-vim'
-"Plugin 'scrooloose/syntastic'
+"Plugin 'davidhalter/jedi-vim'
+Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
 "  Plugin 'rbgrouleff/bclose'
@@ -47,14 +47,27 @@ let g:syntastic_check_on_wq = 0
 "Ctrl-P
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc 
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.orig
 let g:ctrlp_working_path_mode = 'ra'
 
+"YouCompleteMe
 let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
 let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
 let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language's keyword
 let g:ycm_complete_in_comments = 1 " Completion in comments
 let g:ycm_complete_in_strings = 1 " Completion in string
+let g:ycm_autoclose_preview_window_after_completion=1
+:noremap <silent> <leader>g :YcmCompleter GoToDefinition<ENTER>
+
+"python with virtualenv support
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
 
 set modelines=0
 set tabstop=4
@@ -201,7 +214,8 @@ vnoremap // y/<C-R>"<CR>
 :nnoremap <silent> <leader>v 0wv$
 :vnoremap <silent> <leader>x "aygvd<<
 :vnoremap <silent> <leader>c "ay
-:nnoremap <silent> <leader>p "api<ESC>
+:nnoremap <silent> <leader>p o<space><ESC>"api<ESC>x
+:nnoremap <silent> <leader>pp "api
 
 "   :noremap <silent> <leader>f /function/ge<bar> /def /eg <CR>zt
 "   :noremap <silent>  <leader>f :silent /function \|class <CR>zt
@@ -223,3 +237,6 @@ set pastetoggle=<F2>
 :noremap <silent> <leader>ciw F<Space>Wvt<Space>di
 :noremap <silent> <leader>viw F<Space>Wvt<Space>"ay
 :noremap <silent> <leader><Space> i<Space><ESC>
+:noremap <silent> <leader>' bi'<ESC>ea'<ESC>
+:noremap <silent> <leader>ø bhxelx
+
