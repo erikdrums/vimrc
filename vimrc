@@ -224,7 +224,8 @@ vnoremap // y/<C-R>"<CR>
 "  :silent /function \|class virker
 
 set pastetoggle=<F2>
-:ab vd var_dump()<Left> 
+:ab vd var_dump();<Left><Left> 
+
 :ab p <?php
 :ab cl console.log()<Left>
 :ab pp import pprint<Enter>pprint.pprint()<Left>
