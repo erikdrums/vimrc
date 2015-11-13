@@ -57,6 +57,7 @@ let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language
 let g:ycm_complete_in_comments = 1 " Completion in comments
 let g:ycm_complete_in_strings = 1 " Completion in string
 let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_goto_buffer_command = 'vertical-split'
 
 "python with virtualenv support
 py << EOF
@@ -239,6 +240,8 @@ set pastetoggle=<F2>
 :noremap <silent> <leader>' bi'<ESC>ea'<ESC>
 :noremap <silent> <leader>ø bhxelx
 :noremap <silent> <leader>e :w<ENTER>:q<ENTER> 
+:noremap <silent> <leader>3 I#<ESC>
+:noremap <silent> <leader>4 0wxx
 
 :noremap <leader>gl :YcmCompleter GoToDeclaration<CR>
 :noremap <leader>gf :YcmCompleter GoToDefinition<CR>
