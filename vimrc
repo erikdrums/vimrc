@@ -77,6 +77,7 @@ set expandtab
 set encoding=utf-8
 set scrolloff=3
 set autoindent
+set smartindent
 set showmode
 set showcmd
 set hidden
@@ -215,7 +216,8 @@ vnoremap // y/<C-R>"<CR>
 :vnoremap <silent> <leader>x "aygvd<<
 :vnoremap <silent> <leader>c "ay
 :nnoremap <silent> <leader>p o<space><ESC>"api<ESC>x
-:nnoremap <silent> <leader>pp "api
+:nnoremap <silent> <leader>pp "ap
+:noremap <leader>by bve"ay<ESC> 
 
 "   :noremap <silent> <leader>f /function/ge<bar> /def /eg <CR>zt
 "   :noremap <silent>  <leader>f :silent /function \|class <CR>zt
@@ -242,7 +244,9 @@ set pastetoggle=<F2>
 :noremap <silent> <leader>ø bhxelx
 :noremap <silent> <leader>e :w<ENTER>:q<ENTER> 
 :noremap <silent> <leader>3 I#<ESC>
-:noremap <silent> <leader>4 0wxx
+:noremap <silent> <leader>4 0wx
+:noremap <silent> <leader>7 0wi//<ESC>:w<ENTER>
+:noremap <silent> <leader>8 0wxx:w<ENTER>
 
 :noremap <leader>gl :YcmCompleter GoToDeclaration<CR>
 :noremap <leader>gf :YcmCompleter GoToDefinition<CR>
