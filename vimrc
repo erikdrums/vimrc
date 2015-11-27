@@ -78,6 +78,7 @@ set expandtab
 set encoding=utf-8
 set scrolloff=3
 set autoindent
+set smartindent
 set showmode
 set showcmd
 set hidden
@@ -216,7 +217,8 @@ vnoremap // y/<C-R>"<CR>
 :vnoremap <silent> <leader>x "aygvd<<
 :vnoremap <silent> <leader>c "ay
 :nnoremap <silent> <leader>p o<space><ESC>"api<ESC>x
-:nnoremap <silent> <leader>pp "api
+:nnoremap <silent> <leader>pp "ap
+:noremap <leader>by bve"ay<ESC> 
 
 "   :noremap <silent> <leader>f /function/ge<bar> /def /eg <CR>zt
 "   :noremap <silent>  <leader>f :silent /function \|class <CR>zt
