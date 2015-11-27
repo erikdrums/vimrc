@@ -38,6 +38,7 @@ syntax on
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+set clipboard=unnamedplus
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -241,8 +242,10 @@ set pastetoggle=<F2>
 :noremap <silent> <leader>' bi'<ESC>ea'<ESC>
 :noremap <silent> <leader>ø bhxelx
 :noremap <silent> <leader>e :w<ENTER>:q<ENTER> 
-:noremap <silent> <leader>3 I#<ESC>
-:noremap <silent> <leader>4 0wxx
+:noremap <silent> <leader>3 I#<ESC>:w<ENTER>
+:noremap <silent> <leader>4 0wx:w<ENTER>
+:noremap <silent> <leader>7 I//<ESC>:w<ENTER>
+:noremap <silent> <leader>8 0wxx:w<ENTER>
 
 :noremap <leader>gl :YcmCompleter GoToDeclaration<CR>
 :noremap <leader>gf :YcmCompleter GoToDefinition<CR>
