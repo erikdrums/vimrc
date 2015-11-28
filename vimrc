@@ -235,3 +235,7 @@ set pastetoggle=<F2>
 :noremap <silent> <leader>ø bhxelx
 :noremap <silent> <leader>e :w<ENTER>:q<ENTER> 
 
+nnoremap m :m .-2<CR>==
+nnoremap n :m .+1<CR>==
+vnoremap n :m '>+1<CR>gv=gv
+vnoremap m :m '<-2<CR>gv=gv
