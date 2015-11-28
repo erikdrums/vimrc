@@ -232,7 +232,7 @@ set pastetoggle=<F2>
 
 :ab p <?php
 :ab cl console.log()<Left>
-:ab pp import pprint<Enter>pprint.pprint()<Left>
+":ab pp import pprint<Enter>pprint.pprint()<Left>
 :noremap <C-W>j <C-W><Left>
 :noremap <C-W>k <C-W><Right>
 :noremap <silent> <leader><Space> i<space><ESC>
@@ -253,8 +253,7 @@ set pastetoggle=<F2>
 :noremap <leader>gf :YcmCompleter GoToDefinition<CR>
 :noremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-
-nnoremap m :m .-2<CR>==
-nnoremap n :m .+1<CR>==
-vnoremap n :m '>+1<CR>gv=gv
-vnoremap m :m '<-2<CR>gv=gv
+:nnoremap <leader>k :m .-2<CR>==
+:nnoremap <leader>j :m .+1<CR>==
+:vnoremap <leader>j :m '>+1<CR>gv=gv
+:vnoremap <leader>k :m '<-2<CR>gv=gv
