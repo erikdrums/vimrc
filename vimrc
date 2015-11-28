@@ -1,4 +1,4 @@
-    filetype off
+filetype off
 set nocompatible
 
 
@@ -38,6 +38,7 @@ syntax on
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+set clipboard=unnamedplus
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -51,7 +52,13 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.orig
 let g:ctrlp_working_path_mode = 'ra'
 
 "YouCompleteMe
+let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
+let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
+let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language's keyword
+let g:ycm_complete_in_comments = 1 " Completion in comments
+let g:ycm_complete_in_strings = 1 " Completion in string
 let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_goto_buffer_command = 'vertical-split'
 
 "python with virtualenv support
 py << EOF
@@ -71,6 +78,7 @@ set expandtab
 set encoding=utf-8
 set scrolloff=3
 set autoindent
+set smartindent
 set showmode
 set showcmd
 set hidden
@@ -209,7 +217,8 @@ vnoremap // y/<C-R>"<CR>
 :vnoremap <silent> <leader>x "aygvd<<
 :vnoremap <silent> <leader>c "ay
 :nnoremap <silent> <leader>p o<space><ESC>"api<ESC>x
-:nnoremap <silent> <leader>pp "api
+:nnoremap <silent> <leader>pp "ap
+:noremap <leader>by bve"ay<ESC> 
 
 "   :noremap <silent> <leader>f /function/ge<bar> /def /eg <CR>zt
 "   :noremap <silent>  <leader>f :silent /function \|class <CR>zt
@@ -219,7 +228,8 @@ vnoremap // y/<C-R>"<CR>
 "  :silent /function \|class virker
 
 set pastetoggle=<F2>
-:ab vd var_dump()<Left> 
+:ab vd var_dump();<Left><Left> 
+
 :ab p <?php
 :ab cl console.log()<Left>
 :ab pp import pprint<Enter>pprint.pprint()<Left>
@@ -234,6 +244,15 @@ set pastetoggle=<F2>
 :noremap <silent> <leader>' bi'<ESC>ea'<ESC>
 :noremap <silent> <leader>ø bhxelx
 :noremap <silent> <leader>e :w<ENTER>:q<ENTER> 
+:noremap <silent> <leader>3 I#<ESC>:w<ENTER>
+:noremap <silent> <leader>4 0wx:w<ENTER>
+:noremap <silent> <leader>7 I//<ESC>:w<ENTER>
+:noremap <silent> <leader>8 0wxx:w<ENTER>
+
+:noremap <leader>gl :YcmCompleter GoToDeclaration<CR>
+:noremap <leader>gf :YcmCompleter GoToDefinition<CR>
+:noremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
 
 nnoremap m :m .-2<CR>==
 nnoremap n :m .+1<CR>==
