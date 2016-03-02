@@ -61,14 +61,9 @@ let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_goto_buffer_command = 'vertical-split'
 
 "python with virtualenv support
-py << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  execfile(activate_this, dict(__file__=activate_this))
-EOF
+if filereadable($VIRTUAL_ENV . '/.vimrc')
+    source $VIRTUAL_ENV/.vimrc
+endif
 
 set modelines=0
 set tabstop=4
@@ -257,3 +252,5 @@ set pastetoggle=<F2>
 :nnoremap <leader>j :m .+1<CR>==
 :vnoremap <leader>j :m '>+1<CR>gv=gv
 :vnoremap <leader>k :m '<-2<CR>gv=gv
+
+:nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<LEFT><LEFT>
