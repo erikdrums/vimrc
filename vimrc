@@ -14,7 +14,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'flazz/vim-colorscheme'
-"Plugin 'davidhalter/jedi-vim'
+Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
@@ -25,6 +25,9 @@ Plugin 'easygrep'
 Plugin 'szw/vim-tags'
 Plugin 'rking/ag.vim'
 Plugin 'kien/ctrlp.vim'
+Plugin 'matze/vim-move'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-easytags'
 "Plugin 'andviro/flake8-vim'
 
 
@@ -69,6 +72,10 @@ if 'VIRTUAL_ENV' in os.environ:
   activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
   execfile(activate_this, dict(__file__=activate_this))
 EOF
+
+"CTAGS
+nmap <C-Enter> <C-w><C-]><C-w>T
+set tags+=~/.bender_venvs/sund/tags
 
 set modelines=0
 set tabstop=4
@@ -257,3 +264,7 @@ set pastetoggle=<F2>
 :nnoremap <leader>j :m .+1<CR>==
 :vnoremap <leader>j :m '>+1<CR>gv=gv
 :vnoremap <leader>k :m '<-2<CR>gv=gv
+
+
+:vnoremap <leader>0 :Ag <C-r><C-w><ENTER>
+
