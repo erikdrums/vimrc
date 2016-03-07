@@ -33,6 +33,10 @@ filetype plugin indent on
 syntax on
 syntax enable
 
+
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
 " Support virtualenv
 let g:pymode_virtualenv = 1
 
