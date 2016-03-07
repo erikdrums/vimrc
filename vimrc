@@ -1,19 +1,12 @@
 filetype off
 set nocompatible
 
-
-" set the runtime path to include Vundle and initialize
-":PluginInstall
-":PluginUpdate
-":Plugins
-":PluginSearch!
-"
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'flazz/vim-colorscheme'
+Plugin 'flazz/vim-colorschemes'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
@@ -28,6 +21,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'matze/vim-move'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
+Plugin 'terryma/vim-multiple-cursors'
 "Plugin 'andviro/flake8-vim'
 
 
@@ -37,6 +31,10 @@ filetype plugin indent on
 "call pathogen#runtime_append_all_bundles()"
 " let Vundle manage Vundle, required
 syntax on
+syntax enable
+
+" Support virtualenv
+let g:pymode_virtualenv = 1
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -70,10 +68,10 @@ endif
 
 "CTAGS
 nmap <C-Enter> <C-w><C-]><C-w>T
-set tags+=~/.bender_venvs/sund/tags
 
 set modelines=0
 set tabstop=4
+set ts=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
@@ -88,12 +86,14 @@ set wildmenu
 set wildmode=list:longest
 set visualbell
 set cursorline
+set showmatch
 set ttyfast
 set ruler
 set backspace=indent,eol,start
 set laststatus=2
 set relativenumber
 set undofile
+let python_highlight_all = 1
 
 let mapleader = "\<space>"
 
@@ -260,6 +260,6 @@ set pastetoggle=<F2>
 :vnoremap <leader>j :m '>+1<CR>gv=gv
 :vnoremap <leader>k :m '<-2<CR>gv=gv
 
-:vnoremap <leader>0 :Ag <C-r><C-w><ENTER>
+:nnoremap <leader>0 :Ag! <C-r><C-w><ENTER>
 
-:nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<LEFT><LEFT>
+:nnoremap <Leader>s :%s/\<<C-r><C-w>\>//gcI<LEFT><LEFT>
