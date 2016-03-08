@@ -99,7 +99,7 @@ set relativenumber
 set undofile
 let python_highlight_all = 1
 
-let mapleader = "\<space>"
+let mapleader = ","
 
 "  set wrap
 set nowrap
@@ -266,4 +266,6 @@ set pastetoggle=<F2>
 
 :nnoremap <leader>0 :Ag! <C-r><C-w><ENTER>
 
-:nnoremap <Leader>s :%s/\<<C-r><C-w>\>//gcI<LEFT><LEFT>
+:nnoremap <Leader>s :%s/\<<C-r><C-w>\>//gcI<LEFT><LEFT><LEFT><LEFT>
+
+:nnoremap <Leader>9 g<C-]>
