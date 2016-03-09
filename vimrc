@@ -20,9 +20,11 @@ Plugin 'rking/ag.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'matze/vim-move'
 Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-easytags'
+"Plugin 'xolox/vim-easytags'
 Plugin 'terryma/vim-multiple-cursors'
-"Plugin 'andviro/flake8-vim'
+Plugin 'andviro/flake8-vim'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'tpope/vim-surround'
 
 
 " All of your Plugins must be added before the following line
@@ -215,10 +217,12 @@ vnoremap // y/<C-R>"<CR>
 
 :nmap <silent> <leader>q :Bdelete<CR>
 :nmap <silent> <leader>b :NERDTreeToggle<CR>
+:noremap <silent> <leader>e :w<ENTER>:bd<ENTER> 
 
 "  Resize split window
-:nmap <leader>r+ :vertical resize +10<CR>
-:nmap <leader>r- :vertical resize -10<CR>
+:nmap <leader>+ :vertical resize +10<CR>
+:nmap <leader>- :vertical resize -10<CR>
+
 :nnoremap <silent> <leader>v 0wv$
 :vnoremap <silent> <leader>x "aygvd<<
 :vnoremap <silent> <leader>c "ay
@@ -240,6 +244,8 @@ set pastetoggle=<F2>
 :ab cl console.log()<Left>
 ":ab pp import pprint<Enter>pprint.pprint()<Left>
 :noremap <C-W>j <C-W><Left>
+:noremap J <C-W><Left>
+:nnoremap K <C-W><Left>
 :noremap <C-W>k <C-W><Right>
 :noremap <silent> <leader><Space> i<space><ESC>
 :ab pp from pprint import pprint<ESC>opprint()<ESC>i
@@ -249,7 +255,6 @@ set pastetoggle=<F2>
 :noremap <silent> <leader><Space> i<Space><ESC>
 :noremap <silent> <leader>' bi'<ESC>ea'<ESC>
 :noremap <silent> <leader>ø bhxelx
-:noremap <silent> <leader>e :w<ENTER>:q<ENTER> 
 :noremap <silent> <leader>3 I#<ESC>:w<ENTER>
 :noremap <silent> <leader>4 0wx:w<ENTER>
 :noremap <silent> <leader>7 I//<ESC>:w<ENTER>
@@ -259,13 +264,25 @@ set pastetoggle=<F2>
 :noremap <leader>gf :YcmCompleter GoToDefinition<CR>
 :noremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-:nnoremap <leader>k :m .-2<CR>==
-:nnoremap <leader>j :m .+1<CR>==
-:vnoremap <leader>j :m '>+1<CR>gv=gv
-:vnoremap <leader>k :m '<-2<CR>gv=gv
+nnoremap ^[j :m .+1<CR>==
+nnoremap ^[k :m .-2<CR>==
+inoremap ^[j <Esc>:m .+1<CR>==gi
+inoremap ^[k <Esc>:m .-2<CR>==gi
+vnoremap ^[j :m '>+1<CR>gv=gv
+vnoremap ^[k :m '<-2<CR>gv=gv
+
 
 :nnoremap <leader>0 :Ag! <C-r><C-w><ENTER>
 
 :nnoremap <Leader>s :%s/\<<C-r><C-w>\>//gcI<LEFT><LEFT><LEFT><LEFT>
 
 :nnoremap <Leader>9 g<C-]>
+
+let c='a'
+while c <= 'z'
+  exec "set <A-".c.">=\e".c
+  exec "imap \e".c." <A-".c.">"
+  let c = nr2char(1+char2nr(c))
+endw
+
+set timeout ttimeoutlen=50
