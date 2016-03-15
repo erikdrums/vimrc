@@ -22,7 +22,7 @@ Plugin 'matze/vim-move'
 Plugin 'xolox/vim-misc'
 "Plugin 'xolox/vim-easytags'
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'andviro/flake8-vim'
+"Plugin 'andviro/flake8-vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-surround'
 
@@ -47,10 +47,14 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 set clipboard=unnamedplus
 
+"Syntastic
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+"Syntastic set filetype and checker
+let g:syntastic_python_flake8_args="--ignore=E126,E127,E501,E128,E124,E121"
+let g:syntastic_php_flake8_args="--ignore=E126,E127,E501"
 
 "Ctrl-P
 let g:ctrlp_map = '<c-p>'
