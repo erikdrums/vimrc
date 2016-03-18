@@ -36,6 +36,7 @@ filetype plugin indent on
 syntax on
 syntax enable
 
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.orig,sundhedstallet/node_modules/
 
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
@@ -54,14 +55,14 @@ let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 "Syntastic set filetype and checker
-let g:syntastic_python_flake8_args="--ignore=E126,E127,E501,E128,E124,E121"
+let g:syntastic_python_flake8_args="--ignore=E123,E126,E127,E501,E128,E124,E121,E302"
 let g:syntastic_php_flake8_args="--ignore=E126,E127,E501"
 
 "Ctrl-P
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.orig
 let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
 
 "YouCompleteMe
 let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
@@ -249,8 +250,6 @@ set pastetoggle=<F2>
 :ab cl console.log()<Left>
 ":ab pp import pprint<Enter>pprint.pprint()<Left>
 :noremap <C-W>j <C-W><Left>
-:noremap J <C-W><Left>
-:nnoremap K <C-W><Left>
 :noremap <C-W>k <C-W><Right>
 :noremap <silent> <leader><Space> i<space><ESC>
 :ab pp from pprint import pprint<ESC>opprint()<ESC>i
