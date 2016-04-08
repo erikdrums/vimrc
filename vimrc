@@ -26,6 +26,8 @@ Plugin 'terryma/vim-multiple-cursors'
 "Plugin 'andviro/flake8-vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-surround'
+Plugin 'Shougo/vimshell.vim'
+Plugin 'Shougo/vimshell'
 
 
 " All of your Plugins must be added before the following line
@@ -55,7 +57,7 @@ let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 "Syntastic set filetype and checker
-let g:syntastic_python_flake8_args="--ignore=E123,E126,E127,E501,E128,E124,E121,E302"
+let g:syntastic_python_flake8_args="--ignore=E123,E126,E127,E501,E128,E124,E121,W291,E302"
 let g:syntastic_php_flake8_args="--ignore=E126,E127,E501"
 
 "Ctrl-P
@@ -251,7 +253,7 @@ set pastetoggle=<F2>
 ":ab pp import pprint<Enter>pprint.pprint()<Left>
 :noremap <C-W>j <C-W><Left>
 :noremap <C-W>k <C-W><Right>
-:noremap <silent> <leader><Space> i<space><ESC>
+:noremap <silent> <leader><Space> i<space>:w<ENTER>
 :ab pp from pprint import pprint<ESC>opprint()<ESC>i
 
 :noremap <silent> <leader>ciw F<Space>Wvt<Space>di
@@ -263,6 +265,10 @@ set pastetoggle=<F2>
 :noremap <silent> <leader>4 0wx:w<ENTER>
 :noremap <silent> <leader>7 I//<ESC>:w<ENTER>
 :noremap <silent> <leader>8 0wxx:w<ENTER>
+:nnoremap <Leader>9 g<C-]>
+:nnoremap <leader>0 :Ag! <C-r><C-w><ENTER>
+:nnoremap <Leader>s :%s/\<<C-r><C-w>\>//gcI<LEFT><LEFT><LEFT><LEFT>
+:nnoremap <leader>y /\<\(def\\|class\\|function\)\> <ENTER>
 
 :noremap <leader>gl :YcmCompleter GoToDeclaration<CR>
 :noremap <leader>gf :YcmCompleter GoToDefinition<CR>
@@ -275,12 +281,10 @@ inoremap ^[k <Esc>:m .-2<CR>==gi
 vnoremap ^[j :m '>+1<CR>gv=gv
 vnoremap ^[k :m '<-2<CR>gv=gv
 
+" wrap word in dir(), nice for python print
+:nnoremap <silent> <leader>i bidir(<ESC>ea)<ESC><leader>w
 
-:nnoremap <leader>0 :Ag! <C-r><C-w><ENTER>
 
-:nnoremap <Leader>s :%s/\<<C-r><C-w>\>//gcI<LEFT><LEFT><LEFT><LEFT>
-
-:nnoremap <Leader>9 g<C-]>
 
 let c='a'
 while c <= 'z'
@@ -290,3 +294,5 @@ while c <= 'z'
 endw
 
 set timeout ttimeoutlen=50
+
+
