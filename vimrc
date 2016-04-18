@@ -28,6 +28,8 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-surround'
 Plugin 'Shougo/vimshell.vim'
 Plugin 'Shougo/vimshell'
+Plugin 'gcmt/wildfire.vim'
+Plugin 'ludovicchabant/vim-lawrencium'
 
 
 " All of your Plugins must be added before the following line
@@ -65,6 +67,7 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
+let g:ctrlp_max_files = 0
 
 "YouCompleteMe
 let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
@@ -280,6 +283,9 @@ inoremap ^[j <Esc>:m .+1<CR>==gi
 inoremap ^[k <Esc>:m .-2<CR>==gi
 vnoremap ^[j :m '>+1<CR>gv=gv
 vnoremap ^[k :m '<-2<CR>gv=gv
+
+map + <Plug>(wildfire-fuel)
+map _ <Plug>(wildfire-water)
 
 " wrap word in dir(), nice for python print
 :nnoremap <silent> <leader>i bidir(<ESC>ea)<ESC><leader>w
